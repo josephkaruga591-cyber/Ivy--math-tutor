@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/*
+ * AI Math Tutor — global styles
+ * Assumes Tailwind CSS v4. Load Outfit, Plus Jakarta Sans, and
+ * JetBrains Mono separately if you want those exact fonts.
+ */
+
+@layer base {
+  :root {
+    --font-display: "Outfit", system-ui, sans-serif;
+    --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+
+    color-scheme: light;
+    font-family: var(--font-body);
+    color: #1e293b;
+    background-color: #f8fafc;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-width: 320px;
+    min-height: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    font-family: var(--font-body);
+    color: #1e293b;
+    background-color: #f8fafc;
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    line-height: 1.2;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button,
+  [role="button"],
+  a,
+  input,
+  textarea,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 3px;
+  }
+
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+  }
+
+  /* Apply this class to long equations or worked solutions when needed. */
+  .math-content {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Keep code-style working and numerical expressions legible. */
+  .font-mono,
+  code,
+  pre {
+    font-family: var(--font-mono);
+  }
+
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* Custom scrollbars for math history and step lists */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Scrollbars are less intrusive on small screens. */
+@media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+/* Respect the user's reduced-motion accessibility setting. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
